@@ -1,4 +1,4 @@
-package com.example.myfirstlogin;
+package com.example.myfirstlogin.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,10 +6,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
+
+import com.example.myfirstlogin.Activities.LoginActivity;
+import com.example.myfirstlogin.R;
 
 public class MainActivity extends AppCompatActivity {
 

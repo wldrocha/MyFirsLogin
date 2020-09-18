@@ -1,4 +1,4 @@
-package com.example.myfirstlogin;
+package com.example.myfirstlogin.App;
 
 import android.app.Application;
 import android.os.SystemClock;

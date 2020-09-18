@@ -1,4 +1,4 @@
-package com.example.myfirstlogin;
+package com.example.myfirstlogin.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,11 +14,12 @@ import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
+import com.example.myfirstlogin.R;
+import com.example.myfirstlogin.Utils.Util;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private SharedPreferences pref;
+    private SharedPreferences prefs;
 
     private EditText EditTextEmail;
     private EditText EditTextPass;
@@ -30,7 +31,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        pref = getSharedPreferences("Preferences", Context.MODE_PRIVATE);
+        prefs = getSharedPreferences("Preferences", Context.MODE_PRIVATE);
         
         binUI();
         setCredentialsIsExist();
@@ -57,8 +58,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void setCredentialsIsExist() {
-        String email = getUserMailPrefs();
-        String password = getUserPassPrefs();
+        String email = Util.getUserMailPrefs(prefs);
+        String password = Util.getUserPassPrefs(prefs);
         if(!TextUtils.isEmpty(email) && !TextUtils.isEmpty(password)) {
             EditTextEmail.setText(email);
             EditTextPass.setText(password);
@@ -79,7 +80,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void savedPreferences(String email, String password) {
         if(switchRemember.isChecked()){
-            SharedPreferences.Editor editor = pref.edit();
+            SharedPreferences.Editor editor = prefs.edit();
             editor.putString("email", email);
             editor.putString("password", password);
             /*
@@ -106,11 +107,4 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private String getUserMailPrefs() {
-        return pref.getString("email", "");
-    }
-
-    private String getUserPassPrefs() {
-        return pref.getString("password", "");
-    }
 }
