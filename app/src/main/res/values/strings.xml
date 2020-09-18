@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">My first login</string>
+    <string name="log_out">Log out</string>
+    <string name="forget_and_logout">Forget and logout</string>
+</resources>
